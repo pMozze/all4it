@@ -9,16 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
+    "framer-motion": "^11.5.3",
+    "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.7"
+    "swiper": "^11.1.12"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.7"
+    "eslint-config-next": "14.2.7",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5",
+    "typescript-plugin-css-modules": "^5.1.0"
   }
 }

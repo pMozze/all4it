@@ -1,0 +1,60 @@
+.wrapper {
+  position: relative;
+  padding-top: 75px;
+  overflow: hidden;
+}
+
+.wrapper::after {
+  position: absolute;
+  inset: 0;
+
+  content: '';
+  background-image: linear-gradient(to bottom, transparent 50%, #08090a 100%);
+
+  pointer-events: none;
+}
+
+.title {
+  font-size: 56px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: 24px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.imagesContainer {
+  position: relative;
+  margin-inline: auto;
+
+  width: 1600px;
+  height: 900px;
+
+  border: 1px solid #1e1e1e;
+  border-right: none;
+
+  border-radius: 12px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  transform: translateX(2%) rotateX(47deg) rotateY(31deg) rotate(324deg);
+  mask-image: linear-gradient(to right, #fff 50%, transparent 100%);
+}
+
+.image {
+  position: absolute;
+
+  top: calc(6px * var(--index));
+  left: calc(12px * var(--index));
+
+  width: calc(100% - 12px * var(--index));
+  height: calc(100% - 6px * var(--index));
+
+  object-fit: cover;
+  border-radius: inherit;
+}
