@@ -1,0 +1,110 @@
+.title {
+  font-size: 48px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  text-align: center;
+  color: #d0d6e0;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  padding-block: 65px;
+  overflow-x: hidden;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(97, 106, 115, 0.12) 40%,
+    rgba(97, 106, 115, 0.12) 80%,
+    transparent
+  );
+}
+
+.carouselWrapper {
+  display: flex;
+}
+
+.carouselSlide {
+  flex-shrink: 0;
+}
+
+.carouselNavigation {
+  margin: 50px auto 0 auto;
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  column-gap: 10px;
+}
+
+.carouselNavigationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 100%;
+  background-color: #28282c;
+
+  transition: filter 150ms ease;
+}
+
+.carouselNavigationButton:hover,
+.carouselNavigationButton:focus-visible {
+  filter: brightness(125%);
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  padding: 25px;
+}
+
+.card.active {
+  border-radius: 6px;
+  background: linear-gradient(169deg, rgba(97, 106, 115, 0.7), #000 155.91%), #08090a;
+  box-shadow:
+    0 167px 67px 0 rgba(0, 0, 0, 0.02),
+    0 94px 56px 0 rgba(0, 0, 0, 0.08),
+    0 42px 42px 0 rgba(0, 0, 0, 0.13),
+    0 10px 23px 0 rgba(0, 0, 0, 0.15);
+}
+
+.carouselSlide:has(.card:not(.active)) + .carouselSlide .card:not(.active) {
+  border-left: 2px solid hsla(0, 0%, 100%, 0.03);
+}
+
+.cardTitle {
+  color: #f7f8f8;
+  font-size: 15px;
+}
+
+.cardPrice {
+  margin-top: 5px;
+  font-size: 17px;
+  color: #d0d6e0;
+}
+
+.cardTime {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #d0d6e0;
+}
+
+.cardDivider {
+  margin: 25px 0 25px -25px;
+  width: calc(100% + 25px * 2);
+  height: 2px;
+  background-color: hsla(0, 0%, 100%, 0.03);
+}
+
+.cardDescription {
+  font-size: 13px;
+  color: #8a8f98;
+}

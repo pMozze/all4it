@@ -1,0 +1,45 @@
+.wrapper {
+  margin-top: 150px;
+  border-top: 1px solid #23252a;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 55px;
+}
+
+.logotype {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  width: fit-content;
+}
+
+.logotype svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.logotype span {
+  font-size: 14px;
+  color: #8a8f98;
+  transition: color 150ms ease;
+}
+
+.logotype:hover span,
+.logotype:focus-visible span {
+  color: #f7f8f8;
+}
+
+.socials {
+  display: flex;
+  column-gap: 25px;
+}
+
+.socialsItem svg {
+  width: 18px;
+  height: 18px;
+  color: #8a8f98;
+}

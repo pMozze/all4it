@@ -1,8 +1,10 @@
 'use client';
 
 import { FC, useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
+
+import MarqueeCarousel from '@/components/MarqueeCarousel/MarqueeCarousel';
+
 import styles from './BitrixAdvantages.module.css';
 
 const BitrixAdvantages: FC = () => {
@@ -21,19 +23,8 @@ const BitrixAdvantages: FC = () => {
     ]
   });
 
-  const [advantages, setAdvantages] = useState<string[]>([
-    'Распространенность',
-    'Широкий функционал',
-    'Быстрая поддержка',
-    'Безопасность',
-    'Легка в управлении',
-    'Интеграция с 1С'
-  ]);
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setAdvantages(advantages => [...advantages].sort(() => 0.5 - Math.random()));
-
       setDescriptionList(descriptionList => {
         if (descriptionList.stepIndex > descriptionList.items.length - 1) {
           return { ...descriptionList, stepIndex: 0 };
@@ -51,29 +42,16 @@ const BitrixAdvantages: FC = () => {
       <h2 className={styles.title}>Почему выбирают создание сайта на Битрикс?</h2>
       <p className={styles.description}>{descriptionList.items[descriptionList.stepIndex]}</p>
       <div className={styles.advantages}>
-        <AnimatePresence initial={false} mode='wait'>
-          {advantages.map(item => (
-            <motion.div
-              initial={{
-                scale: 0,
-                filter: 'blur(5px)'
-              }}
-              animate={{
-                scale: 1,
-                filter: 'blur(0px)'
-              }}
-              exit={{
-                scale: 0,
-                filter: 'blur(5px)'
-              }}
-              transition={{ ease: 'circOut', duration: 0.5 }}
-              key={Math.random()}
-              className={styles.advantagesItem}
-            >
-              {item}
-            </motion.div>
-          ))}
-        </AnimatePresence>
+        <MarqueeCarousel>
+          <div className={styles.advantagesItem}>Распространенность</div>
+          <div className={styles.advantagesItem}>Широкий функционал</div>
+          <div className={styles.advantagesItem}>Быстрая поддержка</div>
+        </MarqueeCarousel>
+        <MarqueeCarousel reverse>
+          <div className={styles.advantagesItem}>Безопасность</div>
+          <div className={styles.advantagesItem}>Легка в управлении</div>
+          <div className={styles.advantagesItem}>Интеграция с 1С</div>
+        </MarqueeCarousel>
       </div>
     </div>
   );

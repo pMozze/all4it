@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import Header from '@/components/layouts/Header/Header';
+import Footer from '@/components/layouts/Footer/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,6 +21,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
       <body className={inter.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

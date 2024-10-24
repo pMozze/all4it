@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import styles from './page.module.css';
 
-import Hero from './Hero';
-import BitrixAdvantages from './BitrixAdvantages';
-import AboutUs from './AboutUs';
-import Pricing from './Pricing';
+import Hero from './Hero/Hero';
+import BitrixAdvantages from './BitrixAdvantages/BitrixAdvantages';
+import AboutUs from './AboutUs/AboutUs';
+import Pricing from './Pricing/Pricing';
+import Customers from './Customers/Customers';
 
 const Page: FC = () => {
   return (
@@ -13,6 +14,7 @@ const Page: FC = () => {
       <BitrixAdvantages />
       <AboutUs />
       <Pricing />
+      <Customers />
     </main>
   );
 };
