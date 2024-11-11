@@ -1,8 +1,10 @@
 'use client';
 
 import { FC } from 'react';
-import { motion } from 'framer-motion';
 import classNames from 'classnames';
+
+import Card from './Card/Card';
+
 import styles from './AboutUs.module.css';
 
 const AboutUs: FC = () => {
@@ -32,7 +34,31 @@ const AboutUs: FC = () => {
             целей.
           </p>
         </div>
-        <div className={styles.card}>
+        <Card
+          subtitle='Чем мы занимаемся'
+          title='Мы разрабатываем современные веб-проекты на основе Bitrix CMS и Bitrix Framework.'
+          bigNumber={1}
+        >
+          Наша специализация включает: <br />
+          • Создание и доработка корпоративных сайтов, интернет-магазинов и порталов на платформе Bitrix CMS. <br />•
+          Интеграция и настройка Bitrix24 для автоматизации бизнес-процессов, управления CRM, задачами и проектами.{' '}
+          <br />• Разработка пользовательских приложений и модулей для расширения функциональности Bitrix и Bitrix24.{' '}
+          <br />• Техническая поддержка, консультации по оптимизации процессов работы с системами Bitrix и Bitrix24.{' '}
+          <br />
+        </Card>
+        <Card
+          subtitle='Чем мы занимаемся'
+          title='Мы разрабатываем современные веб-проекты на основе Bitrix CMS и Bitrix Framework.'
+          bigNumber={1}
+        >
+          Наша специализация включает: <br />
+          • Создание и доработка корпоративных сайтов, интернет-магазинов и порталов на платформе Bitrix CMS. <br />•
+          Интеграция и настройка Bitrix24 для автоматизации бизнес-процессов, управления CRM, задачами и проектами.{' '}
+          <br />• Разработка пользовательских приложений и модулей для расширения функциональности Bitrix и Bitrix24.{' '}
+          <br />• Техническая поддержка, консультации по оптимизации процессов работы с системами Bitrix и Bitrix24.{' '}
+          <br />
+        </Card>
+        {/* <div className={styles.card}>
           <h4 className={styles.cardSmallTitle}>Чем мы занимаемся</h4>
           <div>
             <h2 className={styles.cardTitle}>
@@ -52,7 +78,7 @@ const AboutUs: FC = () => {
             initial={{ translateX: '10%', opacity: 0 }}
             whileInView={{ translateX: '0%', opacity: 1 }}
             transition={{ ease: 'circOut', duration: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.9 }}
           >
             1
           </motion.div>
@@ -76,7 +102,7 @@ const AboutUs: FC = () => {
             initial={{ translateX: '10%', opacity: 0 }}
             whileInView={{ translateX: '0%', opacity: 1 }}
             transition={{ ease: 'circOut', duration: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.9 }}
           >
             2
           </motion.div>
@@ -97,7 +123,7 @@ const AboutUs: FC = () => {
             initial={{ translateX: '10%', opacity: 0 }}
             whileInView={{ translateX: '0%', opacity: 1 }}
             transition={{ ease: 'circOut', duration: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.9 }}
           >
             3
           </motion.div>
@@ -119,11 +145,11 @@ const AboutUs: FC = () => {
             initial={{ translateX: '10%', opacity: 0 }}
             whileInView={{ translateX: '0%', opacity: 1 }}
             transition={{ ease: 'circOut', duration: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.9 }}
           >
             4
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

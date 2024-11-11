@@ -1,6 +1,11 @@
 :root {
   --page-padding: 32px;
   --page-container-width: 1024px;
+
+  --color-text-primary: #f7f8f8;
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: #8a8f98;
+  --color-background-primary: #08090a;
 }
 
 *,
@@ -20,8 +25,8 @@ body {
   font-weight: 500;
   line-height: 1.4;
 
-  color: #f7f8f8;
-  background-color: #08090a;
+  color: var(--color-text-primary);
+  background-color: var(--color-background-primary);
 }
 
 a {

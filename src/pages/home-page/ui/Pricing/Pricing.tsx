@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import styles from './Pricing.module.css';
 
-import ChevronLeftIcon from '@/icons/chevron-left.svg';
-import ChevronRightIcon from '@/icons/chevron-right.svg';
+import ChevronLeftIcon from '@/shared/assets/icons/chevron-left.svg';
+import ChevronRightIcon from '@/shared/assets/icons/chevron-right.svg';
 
 const Pricing: FC = () => {
   const swiperRef = useRef<SwiperClass>();

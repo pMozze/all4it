@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import MarqueeCarousel from '@/components/MarqueeCarousel/MarqueeCarousel';
+import { MarqueeCarousel } from '@/entities/marquee-carousel';
 import styles from './Customers.module.css';
 
 interface Props {

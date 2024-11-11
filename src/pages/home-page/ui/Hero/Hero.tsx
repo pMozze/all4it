@@ -3,7 +3,7 @@ import * as motion from 'framer-motion/client';
 import styles from './Hero.module.css';
 
 const Hero: FC = () => {
-  const images = ['https://i.imgur.com/e8je8l4.png', 'https://i.imgur.com/78yYeu5.png'];
+  const images = ['/hero/1.png'];
 
   return (
     <div className={styles.wrapper}>

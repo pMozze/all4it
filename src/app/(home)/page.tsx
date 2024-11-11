@@ -1,22 +1,8 @@
 import { FC } from 'react';
-import styles from './page.module.css';
-
-import Hero from './Hero/Hero';
-import BitrixAdvantages from './BitrixAdvantages/BitrixAdvantages';
-import AboutUs from './AboutUs/AboutUs';
-import Pricing from './Pricing/Pricing';
-import Customers from './Customers/Customers';
+import { HomePage } from '@/pages/home-page';
 
 const Page: FC = () => {
-  return (
-    <main className={styles.wrapper}>
-      <Hero />
-      <BitrixAdvantages />
-      <AboutUs />
-      <Pricing />
-      <Customers />
-    </main>
-  );
+  return <HomePage />;
 };
 
 export default Page;

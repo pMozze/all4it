@@ -3,9 +3,9 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './Footer.module.css';
 
-import LogotypeIcon from '@/icons/logotype.svg';
-import MailIcon from '@/icons/mail.svg';
-import TelegramIcon from '@/icons/telegram.svg';
+import LogotypeIcon from '@/shared/assets/icons/logotype.svg';
+import MailIcon from '@/shared/assets/icons/mail.svg';
+import TelegramIcon from '@/shared/assets/icons/telegram.svg';
 
 interface Props {
   className?: string;

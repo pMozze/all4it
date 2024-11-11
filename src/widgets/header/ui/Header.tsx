@@ -1,9 +1,11 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Button from '@/components/ui/Button';
+
+import { Button } from '@/shared';
+
 import styles from './Header.module.css';
 
-import LogotypeIcon from '@/icons/logotype.svg';
+import LogotypeIcon from '@/shared/assets/icons/logotype.svg';
 
 const Header: FC = () => {
   return (
