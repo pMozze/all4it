@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { HomePage } from '@/views/home';
+import { ProjectPage } from '@/views/project';
 
 const Page: FC = () => {
-  return <HomePage />;
+  return <ProjectPage />;
 };
 
 export default Page;
