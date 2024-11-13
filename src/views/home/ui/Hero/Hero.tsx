@@ -2,9 +2,9 @@ import { FC } from 'react';
 import * as motion from 'framer-motion/client';
 import styles from './Hero.module.css';
 
-const Hero: FC = () => {
-  const images = ['/hero/1.png'];
+import { type Hero } from '../../model';
 
+const Hero: FC<Hero> = ({ title, images, description }) => {
   return (
     <div className={styles.wrapper}>
       <div className='container'>
@@ -22,9 +22,7 @@ const Hero: FC = () => {
           transition={{ ease: 'easeOut', duration: 1 }}
           className={styles.title}
         >
-          Разработка
-          <br />
-          сайтов на 1C-Битрикс
+          {title}
         </motion.h1>
         <motion.h2
           initial={{
@@ -40,11 +38,7 @@ const Hero: FC = () => {
           transition={{ ease: 'easeOut', duration: 0.5, delay: 0.5 }}
           className={styles.subtitle}
         >
-          Найдем решение, даже если кажется, что все зашло в тупик.
-          <br />
-          Знаем миллион способов, как хорошее сделать лучше без
-          <br />
-          каких-либо потерь.
+          {description}
         </motion.h2>
       </div>
       <div className={styles.imagesContainer}>

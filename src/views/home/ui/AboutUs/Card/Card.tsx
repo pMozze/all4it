@@ -17,7 +17,7 @@ const Card: FC<Props> = ({ subtitle, title, bigNumber, children, className }) =>
       <h4 className={styles.subtitle}>{subtitle}</h4>
       <div>
         <h2 className={styles.title}>{title}</h2>
-        <p className={styles.description}>{children}</p>
+        <div className={styles.description}>{children}</div>
       </div>
       <motion.div
         className={styles.bigNumber}

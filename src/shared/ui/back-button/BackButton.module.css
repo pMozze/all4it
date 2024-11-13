@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  width: fit-content;
+  height: fit-content;
+
+  font-size: 14px;
+  line-height: 1;
+
+  color: #8a8f98;
+  transition: color 150ms ease;
+}
+
+.wrapper svg {
+  flex-shrink: 0;
+
+  width: 16px;
+  height: 16px;
+
+  transition: translate 150ms ease;
+}
+
+.wrapper:hover,
+.wrapper:focus-visible {
+  color: unset;
+}
+
+.wrapper:hover svg,
+.wrapper:focus-visible svg {
+  translate: -2.5px 0;
+}

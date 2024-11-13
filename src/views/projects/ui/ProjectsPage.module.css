@@ -1,0 +1,50 @@
+.wrapper {
+  padding-top: 80px;
+  background: linear-gradient(
+    180deg,
+    rgba(97, 106, 115, 0),
+    rgba(97, 106, 115, 0.1) 20%,
+    rgba(97, 106, 115, 0.1) 80%,
+    rgba(97, 106, 115, 0)
+  );
+}
+
+.hero {
+  margin-inline: auto;
+  padding-block: 100px;
+
+  max-width: 75%;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #d0d6e0;
+}
+
+.title {
+  margin-top: 10px;
+
+  font-size: 48px;
+  font-weight: 500;
+
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.description {
+  margin-top: 20px;
+  margin-inline: auto;
+
+  font-size: 18px;
+  text-wrap: balance;
+
+  color: #8a8f98;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding-bottom: 100px;
+}

@@ -4,33 +4,22 @@ import classNames from 'classnames';
 import { MarqueeCarousel } from '@/entities/marquee-carousel';
 import styles from './Customers.module.css';
 
-interface Props {
+import { type Customers } from '../../model';
+
+interface Props extends Customers {
   className?: string;
 }
 
-const Customers: FC<Props> = ({ className }) => {
+const Customers: FC<Props> = ({ description, items, className }) => {
   return (
     <div className={classNames(className, 'container')}>
-      <div className={styles.title}>От стартапов нового поколения до хорошо зарекомендовавших себя предприятий</div>
+      <div className={styles.title}>{description}</div>
       <MarqueeCarousel className={styles.carousel}>
-        <a className={styles.customer} href='https://studentleague.pro/' target='_blank' rel='noopener noreferrer'>
-          <img src='/customers/1.svg' alt='' />
-        </a>
-        <a className={styles.customer} href='https://wh-collection.ru/' target='_blank' rel='noopener noreferrer'>
-          <img src='/customers/2.png' alt='' />
-        </a>
-        <a className={styles.customer} href='https://ushkova-team.ru/' target='_blank' rel='noopener noreferrer'>
-          <img src='/customers/3.svg' alt='' />
-        </a>
-        <a className={styles.customer} href='https://siu.store/' target='_blank' rel='noopener noreferrer'>
-          <img src='/customers/4.svg' alt='' />
-        </a>
-        <a className={styles.customer} href='http://bivium.ru/' target='_blank' rel='noopener noreferrer'>
-          <img src='/customers/5.svg' alt='' />
-        </a>
-        <a className={styles.customer} href='https://www.westcomp.ru/' target='_blank' rel='noopener noreferrer'>
-          <img src='/customers/6.png' alt='' />
-        </a>
+        {items.map((item, itemIndex) => (
+          <a key={itemIndex} className={styles.customer} href={item.url} target='_blank' rel='noopener noreferrer'>
+            <img src={item.image} alt='' />
+          </a>
+        ))}
       </MarqueeCarousel>
     </div>
   );

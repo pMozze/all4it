@@ -1,8 +1,14 @@
 import { FC } from 'react';
 import { ProjectPage } from '@/views/project';
 
-const Page: FC = () => {
-  return <ProjectPage />;
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+const Page: FC<Props> = ({ params: { id } }) => {
+  return <ProjectPage id={Number(id)} />;
 };
 
 export default Page;

@@ -1,0 +1,107 @@
+.wrapper {
+  padding-block: calc(80px + 100px) 100px;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 100px;
+}
+
+.project {
+  flex-grow: 1;
+}
+
+.shortDescription {
+  font-size: 15px;
+  font-weight: 400;
+  color: #8a8f98;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.secondShortDescription {
+  font-size: 24px;
+  color: #8a8f98;
+}
+
+.divider {
+  margin-block: 30px;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: #23252a;
+}
+
+.description {
+  font-size: 15px;
+}
+
+.sidebar {
+  position: relative;
+
+  padding: calc(60px + 25px) 25px 25px 25px;
+  flex-basis: 20%;
+
+  border-radius: 12px;
+  background-color: #232326;
+}
+
+.sidebarLogotypeWrapper {
+  position: absolute;
+  top: 0;
+
+  padding: 25px;
+  background-color: #f7f8f8;
+
+  width: calc(100% - 75px);
+  aspect-ratio: 1;
+
+  translate: 0 -50%;
+  border-radius: 32px;
+}
+
+.sidebarLogotype {
+  width: 100%;
+  height: 100%;
+
+  object-fit: scale-down;
+  filter: brightness(0) invert(0);
+}
+
+.projectName {
+  font-size: 15px;
+}
+
+.projectUrl {
+  font-size: 15px;
+  color: #828fff;
+  transition: color 150ms ease;
+}
+
+.projectUrl:hover,
+.projectUrl:focus-visible {
+  color: unset;
+}
+
+.sidebarDivider {
+  margin-block: 25px;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: #3e3e44;
+}
+
+.sidebarBlockTitle {
+  font-size: 13px;
+}
+
+.sidebarBlockDescription {
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: capitalize;
+
+  color: #8a8f98;
+}

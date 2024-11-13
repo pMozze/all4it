@@ -5,23 +5,32 @@ import './globals.css';
 
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
+import GlobalStore from './GlobalStore';
+
+import { fetchGlobals } from '@/shared/api/fetchGlobals';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  icons: '/favicon.svg',
-  title: 'All4it – Разработка сайтов на 1С-Битрикс',
-  description:
-    'Найдем решение, даже если кажется, что все зашло в тупик. Знаем миллион способов, как хорошее сделать лучше без каких-либо потерь.'
+export const generateMetadata = async (): Promise<Metadata> => {
+  const globals = await fetchGlobals();
+
+  return {
+    title: globals.page.title,
+    description: globals.page.description,
+    icons: globals.logotype
+  };
 };
 
-const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
+const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
+  const globals = await fetchGlobals();
+
   return (
     <html lang='ru'>
       <body className={inter.className}>
         <Header />
         {children}
         <Footer />
+        <GlobalStore {...globals} />
       </body>
     </html>
   );

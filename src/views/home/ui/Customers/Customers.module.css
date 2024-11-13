@@ -16,4 +16,5 @@
 .customer img {
   margin-inline: auto;
   height: 48px;
+  object-fit: scale-down;
 }

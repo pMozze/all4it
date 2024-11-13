@@ -1,24 +1,27 @@
+'use client';
+
 import { FC } from 'react';
 import Link from 'next/link';
 
 import { Button } from '@/shared';
+import { useGlobalStore } from '@/shared/store';
 
 import styles from './Header.module.css';
 
-import LogotypeIcon from '@/shared/assets/icons/logotype.svg';
-
 const Header: FC = () => {
+  const { logotype } = useGlobalStore();
+
   return (
     <header className={styles.wrapper}>
       <Link className={styles.logotype} href='/'>
-        <LogotypeIcon width='1.5em' height='1.5em' />
+        <img className={styles.logotypeIcon} src={logotype} alt='' />
         All4it
       </Link>
       <div className={styles.navigation}>
         <Link className={styles.navigationLink} href='/'>
           О нас
         </Link>
-        <Link className={styles.navigationLink} href='/'>
+        <Link className={styles.navigationLink} href='/projects'>
           Портфолио
         </Link>
         <Link className={styles.navigationLink} href='/'>

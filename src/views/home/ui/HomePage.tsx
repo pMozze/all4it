@@ -7,14 +7,18 @@ import AboutUs from './AboutUs/AboutUs';
 import Pricing from './Pricing/Pricing';
 import Customers from './Customers/Customers';
 
-const HomePage: FC = () => {
+import { fetchHomePage } from '../api';
+
+const HomePage: FC = async () => {
+  const homepage = await fetchHomePage();
+
   return (
     <main className={styles.wrapper}>
-      <Hero />
-      <BitrixAdvantages />
-      <AboutUs />
-      <Pricing />
-      <Customers />
+      <Hero {...homepage.hero} />
+      <BitrixAdvantages {...homepage.advantages} />
+      <AboutUs {...homepage.aboutus} />
+      <Pricing {...homepage.pricelist} />
+      <Customers {...homepage.customers} />
     </main>
   );
 };
