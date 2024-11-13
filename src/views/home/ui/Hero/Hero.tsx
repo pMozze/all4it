@@ -10,7 +10,7 @@ const Hero: FC<Hero> = ({ title, images, description }) => {
       <div className='container'>
         <motion.h1
           initial={{
-            translateY: '100px',
+            translateY: '25px',
             opacity: 0,
             filter: 'blur(10px)'
           }}
@@ -26,7 +26,7 @@ const Hero: FC<Hero> = ({ title, images, description }) => {
         </motion.h1>
         <motion.h2
           initial={{
-            translateY: '100px',
+            translateY: '12.5px',
             opacity: 0,
             filter: 'blur(10px)'
           }}

@@ -42,7 +42,10 @@
   position: relative;
 
   padding: calc(60px + 25px) 25px 25px 25px;
+  height: fit-content;
+
   flex-basis: 20%;
+  flex-shrink: 0;
 
   border-radius: 12px;
   background-color: #232326;
