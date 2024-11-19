@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100%;
+  background-color: #28282c;
+
+  transition: filter 150ms ease;
+}
+
+.wrapper > svg {
+  width: 50%;
+  height: 50%;
+}
+
+.wrapper:hover,
+.wrapper:focus-visible {
+  filter: brightness(125%);
+}
+
+.wrapper:disabled {
+  cursor: not-allowed;
+  filter: brightness(75%);
+}
+
+.small {
+  width: 32px;
+  height: 32px;
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+}

@@ -16,7 +16,7 @@ interface Props {
   className?: string;
 }
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const ProjectCard: FC<Props> = ({ id, logotype, shortDescription, className }) => {
   return (

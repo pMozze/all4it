@@ -1,0 +1,46 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper:not(:has(.navigationButton_disabled)) {
+  padding-inline: 16px;
+}
+
+.carousel {
+  overflow-x: hidden;
+}
+
+.carouselWrapper {
+  display: flex;
+}
+
+.carouselSlide {
+  flex-shrink: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.carouselSlide img {
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.navigationButton {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.navigationButton_previous {
+  left: 0;
+}
+
+.navigationButton_next {
+  right: 0;
+}
+
+.navigationButton_disabled {
+  visibility: hidden;
+}

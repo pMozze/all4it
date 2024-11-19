@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
@@ -10,6 +9,9 @@ import GlobalStore from './GlobalStore';
 import { fetchGlobals } from '@/shared/api/fetchGlobals';
 
 const inter = Inter({ subsets: ['latin'] });
+
+import './globals.css';
+import styles from './layout.module.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const globals = await fetchGlobals();
@@ -28,7 +30,7 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
     <html lang='ru'>
       <body className={inter.className}>
         <Header />
-        {children}
+        <main className={styles.container}>{children}</main>
         <Footer />
         <GlobalStore {...globals} />
       </body>

@@ -18,7 +18,7 @@ const Footer: FC<Props> = ({ className }) => {
   const { logotype, footer, contacts } = useGlobalStore();
 
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <footer className={classNames(styles.wrapper, className)}>
       <div className={classNames(styles.container, 'container')}>
         <Link className={styles.logotype} href='/'>
           <img className={styles.logotypeIcon} src={logotype} alt='' />
@@ -28,12 +28,12 @@ const Footer: FC<Props> = ({ className }) => {
           <a className={styles.socialsItem} href={contacts.telegram} target='_blank' rel='noopener noreferrer'>
             <TelegramIcon />
           </a>
-          <a className={styles.socialsItem} href={contacts.email}>
+          <a className={styles.socialsItem} href={`mailto:${contacts.email}`}>
             <MailIcon />
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

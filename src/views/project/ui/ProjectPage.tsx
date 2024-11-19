@@ -7,7 +7,8 @@ import { ru } from 'date-fns/locale';
 
 import { fetchProject } from '../api';
 
-import BackButton from '@/shared/ui/back-button/BackButton';
+import { BackButton } from '@/shared';
+import { GalleryCarousel } from '@/shared';
 
 import styles from './ProjectPage.module.css';
 
@@ -23,14 +24,15 @@ const ProjectsPage: FC<Props> = async ({ id }) => {
   }
 
   return (
-    <main className={classNames(styles.wrapper, 'container')}>
-      <BackButton href='/projects' />
+    <div className={classNames(styles.wrapper, 'container')}>
+      <BackButton className={styles.backButton} href='/projects' />
       <article className={styles.project}>
         <div className={styles.shortDescription}>{project.shortDescription}</div>
         <h1 className={styles.title}>{project.title}</h1>
-        <p className={styles.secondShortDescription}>{project.shortDescription}</p>
+        <p className={styles.secondShortDescription}>{project.secondShortDescription}</p>
         <div className={styles.divider}></div>
         <p className={styles.description}>{project.description}</p>
+        <GalleryCarousel className={styles.gallery} images={project.gallery} slidesPerView={3} />
       </article>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarLogotypeWrapper}>
@@ -48,7 +50,7 @@ const ProjectsPage: FC<Props> = async ({ id }) => {
           </div>
         </div>
       </aside>
-    </main>
+    </div>
   );
 };
 

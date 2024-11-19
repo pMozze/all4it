@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 import { Button } from '@/shared';
@@ -10,9 +10,16 @@ import styles from './Header.module.css';
 
 const Header: FC = () => {
   const { logotype } = useGlobalStore();
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState('0px');
+
+  useEffect(() => {
+    const headerStyles = getComputedStyle(headerRef.current!);
+    setHeaderHeight(`calc(${headerStyles.height} + ${headerStyles.top} * 2)`);
+  }, []);
 
   return (
-    <header className={styles.wrapper}>
+    <header ref={headerRef} className={styles.wrapper}>
       <Link className={styles.logotype} href='/'>
         <img className={styles.logotypeIcon} src={logotype} alt='' />
         All4it
@@ -35,6 +42,11 @@ const Header: FC = () => {
         </Link>
       </div>
       <Button className={styles.contactsButton} text='Связаться' />
+      <style global jsx>{`
+        :root {
+          --header-height: ${headerHeight};
+        }
+      `}</style>
     </header>
   );
 };

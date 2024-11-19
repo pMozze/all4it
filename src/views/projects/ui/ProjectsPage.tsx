@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import { notFound } from 'next/navigation';
-import classNames from 'classnames';
 
 import { fetchProjects } from '../api';
 
@@ -15,7 +13,7 @@ const ProjectsPage: FC = async () => {
     <div className={styles.wrapper}>
       <div className='container'>
         <div className={styles.hero}>
-          <div className={styles.subtitle}>Проекты</div>
+          <div className={styles.subtitle}>Портфолио</div>
           <hgroup>
             <h1 className={styles.title}>Познакомьтесь с проектами над которыми мы работали</h1>
             <p className={styles.description}>От стартапов нового поколения до устоявшихся предприятий</p>

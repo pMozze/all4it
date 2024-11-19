@@ -4,7 +4,7 @@ import { FC } from 'react';
 import Typewriter from 'typewriter-effect';
 import classNames from 'classnames';
 
-import { MarqueeCarousel } from '@/entities/marquee-carousel';
+import { MarqueeCarousel } from '@/shared';
 
 import styles from './BitrixAdvantages.module.css';
 
