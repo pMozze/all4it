@@ -1,8 +1,20 @@
 .wrapper {
   padding: 6px 12px;
+  border-radius: 8px;
+  transition: filter 150ms ease;
+}
 
+.wrapper:hover,
+.wrapper:focus-visible {
+  filter: brightness(125%);
+}
+
+.light {
   color: #08090a;
   background-color: #e6e6e6;
+}
 
-  border-radius: 8px;
+.dark {
+  color: #f7f8f8;
+  background-color: #28282c;
 }

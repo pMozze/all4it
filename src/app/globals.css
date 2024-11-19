@@ -17,12 +17,21 @@
   box-sizing: inherit;
 }
 
-html {
-  box-sizing: border-box;
+* {
+  -webkit-tap-highlight-color: transparent;
 
   scrollbar-width: thin;
   scroll-behavior: smooth;
   scrollbar-color: var(--color-accent-primary) transparent;
+}
+
+*::selection {
+  color: var(--color-text-primary);
+  background-color: var(--color-accent-primary);
+}
+
+html {
+  box-sizing: border-box;
 }
 
 body {
@@ -66,6 +75,23 @@ button {
 
   cursor: pointer;
   user-select: none;
+}
+
+input,
+textarea {
+  display: block;
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
 }
 
 h1,

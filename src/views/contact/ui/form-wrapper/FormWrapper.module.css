@@ -1,0 +1,23 @@
+.wrapper {
+  width: 50%;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.header {
+  padding: 12.5px 25px;
+
+  border: 1px solid hsla(0, 0%, 100%, 0.05);
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.body {
+  padding: 25px;
+
+  border: 1px solid hsla(0, 0%, 100%, 0.05);
+  border-top: none;
+
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}

@@ -4,7 +4,7 @@ import { FC } from 'react';
 import parse from 'html-react-parser';
 import classNames from 'classnames';
 
-import Card from './Card/Card';
+import Card from './card/Card';
 
 import styles from './AboutUs.module.css';
 
@@ -12,7 +12,7 @@ import { type Aboutus } from '../../model';
 
 const AboutUs: FC<Aboutus> = ({ title, description, cards }) => {
   return (
-    <div className={styles.wrapper}>
+    <div id='about-us' className={styles.wrapper}>
       <div className={classNames(styles.inner, 'container')}>
         <div className={styles.hero}>
           <h2 className={styles.heroTitle}>{title}</h2>

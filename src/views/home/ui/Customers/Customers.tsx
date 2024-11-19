@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { MarqueeCarousel } from '@/shared';
+import { MarqueeCarousel } from '@/shared/ui';
 import styles from './Customers.module.css';
 
 import { type Customers } from '../../model';

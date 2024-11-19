@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.formControlLabel {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.formControlTitle {
+  font-size: 14px;
+  color: rgba(180, 188, 208, 0.6);
+}
+
+.formControl {
+  padding: 5px 10px;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  caret-color: #5e6ad2;
+  background-color: #232326;
+
+  border-radius: 6px;
+  border: 1px solid #3e3e44;
+}
+
+.formControl_invalid {
+  border-color: #ea5555;
+}
+
+.formControl::placeholder {
+  color: #8a8f98;
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.email {
+  font-size: 13px;
+  color: rgba(180, 188, 208, 0.6);
+}
+
+.email > a {
+  transition: color 150ms ease;
+}
+
+.email > a:hover,
+.email > a:focus-visible {
+  color: #fff;
+}
+
+.submitButton {
+  font-size: 13px;
+}

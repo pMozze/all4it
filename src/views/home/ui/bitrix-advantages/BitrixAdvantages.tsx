@@ -4,7 +4,7 @@ import { FC } from 'react';
 import Typewriter from 'typewriter-effect';
 import classNames from 'classnames';
 
-import { MarqueeCarousel } from '@/shared';
+import { MarqueeCarousel } from '@/shared/ui';
 
 import styles from './BitrixAdvantages.module.css';
 
@@ -12,7 +12,7 @@ import { type Advantages } from '../../model';
 
 const BitrixAdvantages: FC<Advantages> = ({ title, descriptionList, marqueeCarouseles }) => {
   return (
-    <div className={classNames(styles.wrapper, 'container')}>
+    <div id='bitrix' className={classNames(styles.wrapper, 'container')}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.description}>
         <Typewriter

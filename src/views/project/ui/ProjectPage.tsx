@@ -6,9 +6,7 @@ import { fromUnixTime, formatDate } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
 import { fetchProject } from '../api';
-
-import { BackButton } from '@/shared';
-import { GalleryCarousel } from '@/shared';
+import { BackButton, GalleryCarousel } from '@/shared/ui';
 
 import styles from './ProjectPage.module.css';
 
