@@ -22,6 +22,7 @@
 
   scrollbar-width: thin;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   scrollbar-color: var(--color-accent-primary) transparent;
 }
 

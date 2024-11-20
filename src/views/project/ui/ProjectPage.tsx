@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { notFound } from 'next/navigation';
+import parse from 'html-react-parser';
 import classNames from 'classnames';
 
 import { fromUnixTime, formatDate } from 'date-fns';
@@ -29,7 +30,7 @@ const ProjectsPage: FC<Props> = async ({ id }) => {
         <h1 className={styles.title}>{project.title}</h1>
         <p className={styles.secondShortDescription}>{project.secondShortDescription}</p>
         <div className={styles.divider}></div>
-        <p className={styles.description}>{project.description}</p>
+        <div className={styles.description}>{parse(project.description)}</div>
         <GalleryCarousel className={styles.gallery} images={project.gallery} slidesPerView={3} />
       </article>
       <aside className={styles.sidebar}>

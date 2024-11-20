@@ -4,3 +4,4 @@ export { default as Fancybox } from './fancybox/Fancybox';
 export { default as GalleryCarousel } from './gallery-carousel/GalleryCarousel';
 export { default as MarqueeCarousel } from './marquee-carousel/MarqueeCarousel';
 export { default as NavigationButton } from './navigation-button/NavigationButton';
+export { default as Modal } from './modal/Modal';

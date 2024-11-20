@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import { Button } from '@/shared/ui';
 import { useGlobalStore } from '@/shared/store';
+import { FeedbackFormModal } from '@/widgets/feedback-form-modal';
 
 import styles from './Header.module.css';
 
@@ -15,6 +16,8 @@ const Header: FC = () => {
 
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState('0px');
+
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
 
   useEffect(() => {
     const headerStyles = getComputedStyle(headerRef.current!);
@@ -48,13 +51,14 @@ const Header: FC = () => {
         className={styles.contactsButton}
         text='Связаться'
         variant='light'
-        onClick={() => router.push('/contact')}
+        onClick={() => setIsFeedbackModalOpen(true)}
       />
       <style global jsx>{`
         :root {
           --header-height: ${headerHeight};
         }
       `}</style>
+      <FeedbackFormModal isOpen={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)} />
     </header>
   );
 };
