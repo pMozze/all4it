@@ -61,9 +61,13 @@
 }
 
 .card {
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+
   width: 300px;
   height: 500px;
-  padding: 25px;
 }
 
 .card.active {
@@ -107,4 +111,32 @@
 .cardDescription {
   font-size: 13px;
   color: #8a8f98;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: auto;
+}
+
+.cardButton {
+  font-size: 13px;
+}
+
+.cardModalButton {
+  font-size: 13px;
+
+  color: #d0d6e0;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #3e3e44;
+
+  transition: text-decoration-color 150ms ease;
+}
+
+.cardModalButton:hover,
+.cardModalButton:focus-visible {
+  text-decoration-color: #d0d6e0;
 }

@@ -1,24 +1,30 @@
 'use client';
 
-import { FC, useRef } from 'react';
+import { FC, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
-import styles from './Pricing.module.css';
+
+import { type Pricelist } from '../../model';
 
 import { formatPrice } from '@/shared/utils';
+import { Button } from '@/shared/ui';
+import { FeedbackFormModal } from '@/widgets/feedback-form-modal';
 
 import ChevronLeftIcon from '@/shared/assets/icons/chevron-left.svg';
 import ChevronRightIcon from '@/shared/assets/icons/chevron-right.svg';
 
-import { type Pricelist } from '../../model';
+import styles from './Pricing.module.css';
 
 const Pricing: FC<Pricelist> = ({ title, description, items }) => {
+  const router = useRouter();
   const swiperRef = useRef<SwiperClass>();
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
 
   return (
-    <div>
+    <div id='services'>
       <div className='container'>
         <h2 className={styles.title}>{title}</h2>
         <h3 className={styles.subtitle}>{description}</h3>
@@ -40,6 +46,19 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
               <div className={styles.cardTime}>{item.time}</div>
               <div className={styles.cardDivider}></div>
               <div className={styles.cardDescription}>{item.description}</div>
+              <div className={styles.cardFooter}>
+                <Button
+                  className={styles.cardButton}
+                  variant={item.isHighlighted ? 'light' : 'dark'}
+                  text='Подробнее'
+                  onClick={() => router.push(`/services/${itemIndex}`)}
+                />
+                {item.isHighlighted && (
+                  <button className={styles.cardModalButton} type='button' onClick={() => setIsFeedbackModalOpen(true)}>
+                    сделать заказ
+                  </button>
+                )}
+              </div>
             </div>
           </SwiperSlide>
         ))}
@@ -66,6 +85,7 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
           </motion.button>
         </div>
       </Swiper>
+      <FeedbackFormModal isOpen={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)} />
     </div>
   );
 };

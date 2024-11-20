@@ -40,7 +40,7 @@ const Header: FC = () => {
         <Link className={styles.navigationLink} href='/#bitrix'>
           Битрикс
         </Link>
-        <Link className={styles.navigationLink} href='/services'>
+        <Link className={styles.navigationLink} href='/#services'>
           Услуги
         </Link>
         <Link className={styles.navigationLink} href='/contact'>
