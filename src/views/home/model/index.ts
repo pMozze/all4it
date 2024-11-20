@@ -2,7 +2,7 @@ export interface Homepage {
   hero: Hero;
   advantages: Advantages;
   aboutus: Aboutus;
-  pricelist: Pricelist;
+  services: Pricelist;
   customers: Customers;
 }
 
@@ -47,9 +47,10 @@ export interface Pricelist {
 }
 
 export interface PricelistItem {
+  id: number;
   title: string;
   priceFrom: number;
   time: string;
-  description: string;
+  shortDescription: string;
   isHighlighted: boolean;
 }

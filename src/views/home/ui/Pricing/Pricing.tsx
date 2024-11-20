@@ -1,7 +1,6 @@
 'use client';
 
 import { FC, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';
@@ -11,6 +10,8 @@ import { type Pricelist } from '../../model';
 
 import { formatPrice } from '@/shared/utils';
 import { Button } from '@/shared/ui';
+
+import { ServiceModal } from '@/widgets/service-modal';
 import { FeedbackFormModal } from '@/widgets/feedback-form-modal';
 
 import ChevronLeftIcon from '@/shared/assets/icons/chevron-left.svg';
@@ -19,9 +20,12 @@ import ChevronRightIcon from '@/shared/assets/icons/chevron-right.svg';
 import styles from './Pricing.module.css';
 
 const Pricing: FC<Pricelist> = ({ title, description, items }) => {
-  const router = useRouter();
   const swiperRef = useRef<SwiperClass>();
   const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [isServiceModalOpen, setIsServiceModalOpen] = useState<{ serviceId: number | null; isOpen: boolean }>({
+    serviceId: null,
+    isOpen: false
+  });
 
   return (
     <div id='services'>
@@ -38,20 +42,20 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
         initialSlide={2}
         onInit={swiper => (swiperRef.current = swiper)}
       >
-        {items.map((item, itemIndex) => (
+        {items?.map((item, itemIndex) => (
           <SwiperSlide key={itemIndex} className={styles.carouselSlide}>
             <div className={classNames(styles.card, item.isHighlighted && styles.active)}>
               <div className={styles.cardTitle}>{item.title}</div>
               <div className={styles.cardPrice}>от {formatPrice(item.priceFrom)}</div>
               <div className={styles.cardTime}>{item.time}</div>
               <div className={styles.cardDivider}></div>
-              <div className={styles.cardDescription}>{item.description}</div>
+              <div className={styles.cardDescription}>{item.shortDescription}</div>
               <div className={styles.cardFooter}>
                 <Button
                   className={styles.cardButton}
                   variant={item.isHighlighted ? 'light' : 'dark'}
                   text='Подробнее'
-                  onClick={() => router.push(`/services/${itemIndex}`)}
+                  onClick={() => setIsServiceModalOpen({ serviceId: item.id, isOpen: true })}
                 />
                 {item.isHighlighted && (
                   <button className={styles.cardModalButton} type='button' onClick={() => setIsFeedbackModalOpen(true)}>
@@ -85,6 +89,11 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
           </motion.button>
         </div>
       </Swiper>
+      <ServiceModal
+        serviceId={isServiceModalOpen.serviceId}
+        isOpen={isServiceModalOpen.isOpen}
+        onClose={() => setIsServiceModalOpen({ serviceId: null, isOpen: false })}
+      />
       <FeedbackFormModal isOpen={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)} />
     </div>
   );

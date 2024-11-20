@@ -17,7 +17,7 @@ const HomePage: FC = async () => {
       <Hero {...homepage.hero} />
       <BitrixAdvantages {...homepage.advantages} />
       <AboutUs {...homepage.aboutus} />
-      <Pricing {...homepage.pricelist} />
+      <Pricing {...homepage.services} />
       <Customers {...homepage.customers} />
     </div>
   );
