@@ -54,14 +54,16 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
                 <Button
                   className={styles.cardButton}
                   variant={item.isHighlighted ? 'light' : 'dark'}
-                  text='Подробнее'
-                  onClick={() => setIsServiceModalOpen({ serviceId: item.id, isOpen: true })}
+                  text='Заказать'
+                  onClick={() => setIsFeedbackModalOpen(true)}
                 />
-                {item.isHighlighted && (
-                  <button className={styles.cardModalButton} type='button' onClick={() => setIsFeedbackModalOpen(true)}>
-                    сделать заказ
-                  </button>
-                )}
+                <button
+                  className={styles.cardModalButton}
+                  type='button'
+                  onClick={() => setIsServiceModalOpen({ serviceId: item.id, isOpen: true })}
+                >
+                  подробнее
+                </button>
               </div>
             </div>
           </SwiperSlide>

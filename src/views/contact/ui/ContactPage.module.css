@@ -15,3 +15,13 @@
   font-size: 15px;
   font-weight: 400;
 }
+
+.description a {
+  color: var(--color-accent-primary);
+  transition: color 150ms ease;
+}
+
+.description a:hover,
+.description a:focus-visible {
+  color: var(--color-text-primary);
+}

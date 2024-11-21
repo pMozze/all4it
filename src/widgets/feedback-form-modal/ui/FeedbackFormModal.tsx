@@ -10,7 +10,7 @@ interface Props {
 
 const FeedbackFormModal: FC<Props> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal title='Расскажите чем мы можем Вам помочь' isOpen={isOpen} onClose={onClose}>
       <FeedbackForm />
     </Modal>
   );

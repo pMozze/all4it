@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
+    "@react-input/mask": "^1.2.15",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.5.3",

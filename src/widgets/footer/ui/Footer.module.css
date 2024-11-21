@@ -3,10 +3,31 @@
 }
 
 .container {
+  padding-block: 55px;
+}
+
+.row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 55px;
+}
+
+.row:last-child {
+  margin-top: 10px;
+}
+
+.link {
+  margin-left: auto;
+
+  font-size: 14px;
+
+  color: #8a8f98;
+  transition: color 150ms ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--color-text-primary);
 }
 
 .logotype {

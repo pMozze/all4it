@@ -20,17 +20,24 @@ const Footer: FC<Props> = ({ className }) => {
   return (
     <footer className={classNames(styles.wrapper, className)}>
       <div className={classNames(styles.container, 'container')}>
-        <Link className={styles.logotype} href='/'>
-          <img className={styles.logotypeIcon} src={logotype} alt='' />
-          <span>{footer.title}</span>
-        </Link>
-        <div className={styles.socials}>
-          <a className={styles.socialsItem} href={contacts.telegram} target='_blank' rel='noopener noreferrer'>
-            <TelegramIcon />
-          </a>
-          <a className={styles.socialsItem} href={`mailto:${contacts.email}`}>
-            <MailIcon />
-          </a>
+        <div className={styles.row}>
+          <Link className={styles.logotype} href='/'>
+            <img className={styles.logotypeIcon} src={logotype} alt='' />
+            <span>{footer.title}</span>
+          </Link>
+          <div className={styles.socials}>
+            <a className={styles.socialsItem} href={contacts.telegram} target='_blank' rel='noopener noreferrer'>
+              <TelegramIcon />
+            </a>
+            <a className={styles.socialsItem} href={`mailto:${contacts.email}`}>
+              <MailIcon />
+            </a>
+          </div>
+        </div>
+        <div className={styles.row}>
+          <Link className={styles.link} href='/privacy'>
+            Политика конфеденциальности
+          </Link>
         </div>
       </div>
     </footer>

@@ -1,0 +1,21 @@
+.image {
+  width: 32px;
+  height: 32px;
+  object-fit: fill;
+  animation: animation 2s ease infinite;
+}
+
+@keyframes animation {
+  0% {
+    opacity: 0;
+    translate: 0 16px;
+  }
+  50% {
+    opacity: 1;
+    translate: 0 0px;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 -16px;
+  }
+}

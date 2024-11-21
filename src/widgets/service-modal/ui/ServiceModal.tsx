@@ -24,15 +24,14 @@ const ServiceModal: FC<Props> = ({ serviceId, isOpen, onClose }) => {
       return;
     }
 
-    fetchService(serviceId).then(setService);
+    fetchService(serviceId)
+      .then(setService)
+      .catch(() => setService(null));
   }, [serviceId]);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <div className={styles.service}>
-        <div className={styles.title}>{service?.title}</div>
-        <div className={styles.description}>{parse(service?.description || '')}</div>
-      </div>
+    <Modal title={service?.title} isOpen={isOpen} onClose={onClose}>
+      <div className={styles.service}>{parse(service?.description || '')}</div>
     </Modal>
   );
 };

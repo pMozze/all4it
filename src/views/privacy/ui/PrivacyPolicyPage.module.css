@@ -1,0 +1,15 @@
+.wrapper {
+  padding-block: 100px;
+  margin-inline: auto;
+  max-width: 588px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.content {
+  font-size: 15px;
+}

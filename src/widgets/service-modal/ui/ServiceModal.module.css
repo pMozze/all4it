@@ -1,15 +1,8 @@
 .service {
-  display: flex;
-  flex-direction: column;
-  row-gap: 25px;
-}
-
-.title {
-  font-size: 40px;
-  line-height: 1;
-}
-
-.description {
   font-size: 18px;
   color: #8a8f98;
+}
+
+.preloader {
+  margin: auto;
 }

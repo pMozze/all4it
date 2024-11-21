@@ -1,6 +1,8 @@
 export interface FormData {
   name: string;
   email: string;
+  companyName: string;
+  phonenumber: string;
   comment: string;
 }
 

@@ -2,6 +2,7 @@
 
 import { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { InputMask } from '@react-input/mask';
 import classNames from 'classnames';
 
 import { type FormData } from '../model';
@@ -34,6 +35,8 @@ const FeedbackForm: FC = () => {
     } else {
       response?.errors?.name && setError('name', { message: response?.errors?.name?.[0] });
       response?.errors?.email && setError('email', { message: response?.errors?.email?.[0] });
+      response?.errors?.phonenumber && setError('phonenumber', { message: response?.errors?.phonenumber?.[0] });
+      response?.errors?.phonenumber && setError('companyName', { message: response?.errors?.companyName?.[0] });
       response?.errors?.comment && setError('comment', { message: response?.errors?.comment?.[0] });
     }
   };
@@ -59,12 +62,32 @@ const FeedbackForm: FC = () => {
         />
       </label>
       <label className={styles.formControlLabel}>
+        <div className={styles.formControlTitle}>Номер телефона</div>
+        <InputMask
+          className={classNames(styles.formControl, errors.phonenumber && styles.formControl_invalid)}
+          type='tel'
+          mask='+7 (XXX) XXX XX-XX'
+          replacement={{ X: /\d/ }}
+          placeholder='+7 (902) 019 23-22'
+          {...register('phonenumber', { required: true })}
+        />
+      </label>
+      <label className={styles.formControlLabel}>
+        <div className={styles.formControlTitle}>Название Вашей компании</div>
+        <input
+          className={classNames(styles.formControl, errors.companyName && styles.formControl_invalid)}
+          type='text'
+          placeholder='All4it'
+          {...register('companyName', { required: true })}
+        />
+      </label>
+      <label className={styles.formControlLabel}>
         <div className={styles.formControlTitle}>Чем мы можем Вам помочь?</div>
         <textarea
           className={classNames(styles.formControl, errors.comment && styles.formControl_invalid)}
           rows={4}
           placeholder='Здравствуйте! Я хотел бы заказать проект разработки веб-сайта для моего бизнеса и обсудить возможные идеи и сроки выполнения.'
-          {...register('comment')}
+          {...register('comment', { required: true })}
         ></textarea>
       </label>
       <div className={styles.formRow}>

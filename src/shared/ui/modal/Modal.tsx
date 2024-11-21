@@ -9,11 +9,12 @@ import CrossIcon from '@/shared/assets/icons/cross.svg';
 import styles from './Modal.module.css';
 
 interface Props extends PropsWithChildren {
+  title?: string;
   isOpen?: boolean;
   onClose?: () => void;
 }
 
-const Modal: FC<Props> = ({ isOpen, onClose, children }) => {
+const Modal: FC<Props> = ({ title, isOpen, onClose, children }) => {
   const documentBodyRef = useRef<HTMLElement>();
 
   useEffect(() => {
@@ -32,20 +33,27 @@ const Modal: FC<Props> = ({ isOpen, onClose, children }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key='backdrop'
           className={styles.modalBackdrop}
           onClick={onClose}
-          animate={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { ease: 'circOut', duration: 0.25 } }}
+          exit={{ opacity: 0, transition: { ease: 'circIn', duration: 0.25 } }}
         >
           <motion.div
+            key='modal'
             className={styles.modal}
             onClick={event => event.stopPropagation()}
-            animate={{ scale: [0, 1], transformOrigin: 'bottom' }}
-            exit={{ scale: 0 }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, transition: { ease: 'circOut', duration: 0.25 } }}
+            exit={{ scale: 0, transition: { ease: 'circIn', duration: 0.25 } }}
           >
-            <motion.button className={styles.closeButton} type='button' whileTap={{ scale: 0.9 }} onClick={onClose}>
-              <CrossIcon />
-            </motion.button>
+            <div className={styles.header}>
+              {title && <div className={styles.title}>{title}</div>}
+              <motion.button className={styles.closeButton} type='button' whileTap={{ scale: 0.9 }} onClick={onClose}>
+                <CrossIcon />
+              </motion.button>
+            </div>
             <div className={styles.content}>{children}</div>
           </motion.div>
         </motion.div>

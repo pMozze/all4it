@@ -11,12 +11,14 @@
   height: 100%;
 
   backdrop-filter: blur(24px);
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal {
-  position: relative;
   margin: auto auto 0 auto;
+
+  display: flex;
+  flex-direction: column;
 
   width: var(--page-container-width);
   height: 90%;
@@ -25,13 +27,21 @@
   border-top-right-radius: 30px;
 
   background-color: #08090a;
+  transform-origin: bottom;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
+
+.title {
+  font-size: 24px;
 }
 
 .closeButton {
-  position: absolute;
-
-  top: 30px;
-  right: 30px;
+  margin-left: auto;
 
   display: flex;
   align-items: center;
@@ -63,7 +73,11 @@
 }
 
 .content {
-  height: 100%;
-  margin-top: 100px;
+  flex-grow: 1;
+  overflow: auto;
+
+  padding-bottom: 15%;
   padding-inline: var(--page-padding);
+
+  mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%);
 }
