@@ -1,18 +1,16 @@
 .wrapper {
+  position: sticky;
   z-index: 1337;
+  top: 0;
 
-  position: fixed;
-  translate: -50% 0;
+  padding-block: 16px;
+}
 
-  top: 16px;
-  left: 50%;
-
+.inner {
   display: flex;
   column-gap: 24px;
   align-items: stretch;
 
-  width: calc(var(--page-container-width) + var(--page-padding) * 2);
-  max-width: calc(100vw - var(--page-padding) * 2);
   height: 48px;
 
   background-color: hsla(0, 0%, 4%, 0.2);

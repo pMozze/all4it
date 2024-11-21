@@ -45,11 +45,11 @@ const Hero: FC<Hero> = ({ title, images, description }) => {
         {images.map((image, imageIndex) => (
           <motion.img
             initial={{
-              scale: 1.5,
+              translate: '0 24px',
               opacity: 0
             }}
             animate={{
-              scale: 1,
+              translate: '0 0px',
               opacity: 1
             }}
             transition={{ ease: 'circOut', delay: 2 + imageIndex * 0.5 + imageIndex - 1, duration: 1 }}

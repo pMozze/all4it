@@ -25,41 +25,47 @@ const Header: FC = () => {
   }, []);
 
   return (
-    <header ref={headerRef} className={styles.wrapper}>
-      <Link className={styles.logotype} href='/'>
-        <img className={styles.logotypeIcon} src={logotype} alt='' />
-        All4it
-      </Link>
-      <div className={styles.navigation}>
-        <Link className={styles.navigationLink} href='/#about-us'>
-          О нас
-        </Link>
-        <Link className={styles.navigationLink} href='/projects'>
-          Портфолио
-        </Link>
-        <Link className={styles.navigationLink} href='/#bitrix'>
-          Битрикс
-        </Link>
-        <Link className={styles.navigationLink} href='/#services'>
-          Услуги
-        </Link>
-        <Link className={styles.navigationLink} href='/contact'>
-          Контакты
-        </Link>
-      </div>
-      <Button
-        className={styles.contactsButton}
-        text='Связаться'
-        variant='light'
-        onClick={() => setIsFeedbackModalOpen(true)}
-      />
-      <style global jsx>{`
-        :root {
-          --header-height: ${headerHeight};
-        }
-      `}</style>
+    <>
+      <header ref={headerRef} className={styles.wrapper}>
+        <div className='container'>
+          <div className={styles.inner}>
+            <Link className={styles.logotype} href='/'>
+              <img className={styles.logotypeIcon} src={logotype} alt='' />
+              All4it
+            </Link>
+            <div className={styles.navigation}>
+              <Link className={styles.navigationLink} href='/#about-us'>
+                О нас
+              </Link>
+              <Link className={styles.navigationLink} href='/projects'>
+                Портфолио
+              </Link>
+              <Link className={styles.navigationLink} href='/#bitrix'>
+                Битрикс
+              </Link>
+              <Link className={styles.navigationLink} href='/#services'>
+                Услуги
+              </Link>
+              <Link className={styles.navigationLink} href='/contact'>
+                Контакты
+              </Link>
+            </div>
+            <Button
+              className={styles.contactsButton}
+              text='Связаться'
+              variant='light'
+              onClick={() => setIsFeedbackModalOpen(true)}
+            />
+            <style global jsx>{`
+              :root {
+                --header-height: ${headerHeight};
+              }
+            `}</style>
+          </div>
+        </div>
+      </header>
       <FeedbackFormModal isOpen={isFeedbackModalOpen} onClose={() => setIsFeedbackModalOpen(false)} />
-    </header>
+    </>
   );
 };
 

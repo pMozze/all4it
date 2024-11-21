@@ -1,6 +1,11 @@
 .wrapper {
   position: relative;
-  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 100px;
+  height: calc(100vh - var(--header-height));
 }
 
 .wrapper::after {
@@ -32,32 +37,34 @@
 }
 
 .imagesContainer {
+  margin-top: 100px;
+
   position: relative;
   margin-inline: auto;
 
   width: 1600px;
-  height: 900px;
+  height: 100%;
 
   border: 1px solid #1e1e1e;
-  border-right: none;
+  border-bottom: none;
 
   border-radius: 12px;
-  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-
-  transform: translateX(2%) rotateX(47deg) rotateY(31deg) rotate(324deg);
-  mask-image: linear-gradient(to right, #fff 50%, transparent 100%);
 }
 
 .image {
   position: absolute;
 
   top: calc(6px * var(--index));
-  left: calc(12px * var(--index));
+  left: calc(6px * var(--index));
 
-  width: calc(100% - 12px * var(--index));
-  height: calc(100% - 6px * var(--index));
+  width: calc(100% - 6px * 2 * var(--index));
+  height: calc(100% - 6px * 2 * var(--index));
 
   object-fit: cover;
+  object-position: top;
+
   border-radius: inherit;
+  transform-origin: bottom;
 }

@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
+import { AmbientLight } from '@/shared/ui';
 import GlobalStore from './GlobalStore';
 
 import { fetchGlobals } from '@/shared/api/fetchGlobals';
@@ -32,6 +33,7 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
         <Header />
         <main className={styles.container}>{children}</main>
         <Footer />
+        <AmbientLight />
         <GlobalStore {...globals} />
       </body>
     </html>
