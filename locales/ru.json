@@ -1,0 +1,54 @@
+{
+  "header": {
+    "about_us": "О нас",
+    "projects": "Портфолио",
+    "bitrix": "Битрикс",
+    "services": "Услуги",
+    "contacts": "Контакты",
+    "contactButton": "Связаться"
+  },
+  "homepage": {
+    "services": {
+      "orderButton": "Заказать",
+      "detailsButton": "подробнее"
+    }
+  },
+  "projects": {
+    "subtitle": "Портфолио",
+    "title": "Познакомьтесь с проектами над которыми мы работали",
+    "description": "От стартапов нового поколения до устоявшихся предприятий",
+    "gotoProjectButton": "Перейти к проекту"
+  },
+  "contacts": {
+    "title": "Расскажите чем мы можем Вам помочь",
+    "name": {
+      "title": "Ваше имя",
+      "placeholder": "Максим"
+    },
+    "email": {
+      "title": "E-Mail",
+      "placeholder": "maxim2008@all4it.org"
+    },
+    "phonenumber": {
+      "title": "Номер телефона",
+      "placeholder": "+7 (902) 019 23-22"
+    },
+    "company": {
+      "title": "Название Вашей компании",
+      "placeholder": "All4it"
+    },
+    "comment": {
+      "title": "Чем мы можем Вам помочь?",
+      "placeholder": "Здравствуйте! Я хотел бы заказать проект разработки веб-сайта для моего бизнеса и обсудить возможные идеи и сроки выполнения."
+    },
+    "emailText": "Вы так же можете связаться с нами через электронную почту",
+    "submitButton": "Отправить"
+  },
+  "privacyPolicy": {
+    "title": "Политика конфеденциальности"
+  },
+  "footer": {
+    "privacyPolicy": "Политика конфеденциальности"
+  },
+  "backButton": "Назад"
+}

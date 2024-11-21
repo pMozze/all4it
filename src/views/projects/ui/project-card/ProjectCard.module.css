@@ -1,17 +1,26 @@
 .wrapper {
   padding: 30px;
-  background-color: #08090a;
+
+  display: flex;
+  flex-direction: column;
+
   border-radius: 16px;
+  background-color: #08090a;
+
   cursor: pointer;
 }
 
 .logotype {
+  margin-bottom: 40px;
+
+  width: fit-content;
   height: 32px;
+
   filter: brightness(0) invert(1);
 }
 
 .shortDescription {
-  margin-top: 50px;
+  margin-top: auto;
   font-size: 24px;
   max-width: 75%;
 }

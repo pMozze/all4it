@@ -3,6 +3,7 @@
 import { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { InputMask } from '@react-input/mask';
+import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 
 import { type FormData } from '../model';
@@ -14,6 +15,8 @@ import { Button } from '@/shared/ui';
 import styles from './FeedbackForm.module.css';
 
 const FeedbackForm: FC = () => {
+  const t = useTranslations('contacts');
+
   const {
     contacts: { email }
   } = useGlobalStore();
@@ -44,57 +47,67 @@ const FeedbackForm: FC = () => {
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit(submitHandler)}>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>Ваше имя</div>
+        <div className={styles.formControlTitle}>
+          {t('name.title')} <span>*</span>
+        </div>
         <input
           className={classNames(styles.formControl, errors.name && styles.formControl_invalid)}
           type='text'
-          placeholder='Максим'
+          placeholder={t('name.placeholder')}
           {...register('name', { required: true })}
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>E-Mail</div>
+        <div className={styles.formControlTitle}>
+          {t('email.title')} <span>*</span>
+        </div>
         <input
           className={classNames(styles.formControl, errors.email && styles.formControl_invalid)}
           type='email'
-          placeholder='maxim2008@all4it.org'
+          placeholder={t('email.placeholder')}
           {...register('email', { required: true })}
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>Номер телефона</div>
+        <div className={styles.formControlTitle}>
+          {t('phonenumber.title')} <span>*</span>
+        </div>
         <InputMask
           className={classNames(styles.formControl, errors.phonenumber && styles.formControl_invalid)}
           type='tel'
           mask='+7 (XXX) XXX XX-XX'
           replacement={{ X: /\d/ }}
-          placeholder='+7 (902) 019 23-22'
+          placeholder={t('phonenumber.placeholder')}
           {...register('phonenumber', { required: true })}
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>Название Вашей компании</div>
+        <div className={styles.formControlTitle}>
+          {t('company.title')} <span>*</span>
+        </div>
         <input
           className={classNames(styles.formControl, errors.companyName && styles.formControl_invalid)}
           type='text'
-          placeholder='All4it'
+          placeholder={t('company.placeholder')}
           {...register('companyName', { required: true })}
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>Чем мы можем Вам помочь?</div>
+        <div className={styles.formControlTitle}>
+          {t('comment.title')} <span>*</span>
+        </div>
         <textarea
           className={classNames(styles.formControl, errors.comment && styles.formControl_invalid)}
           rows={4}
-          placeholder='Здравствуйте! Я хотел бы заказать проект разработки веб-сайта для моего бизнеса и обсудить возможные идеи и сроки выполнения.'
+          placeholder={t('comment.placeholder')}
           {...register('comment', { required: true })}
         ></textarea>
       </label>
       <div className={styles.formRow}>
         <span className={styles.email}>
-          Вы так же можете связаться с нами через электронную почту <a href={`mailto:${email}`}>{email}</a>
+          {t('emailText')} <a href={`mailto:${email}`}>{email}</a>
         </span>
-        <Button className={styles.submitButton} type='submit' variant='dark' text='Отправить' />
+        <Button className={styles.submitButton} type='submit' variant='dark' text={t('submitButton')} />
       </div>
     </form>
   );

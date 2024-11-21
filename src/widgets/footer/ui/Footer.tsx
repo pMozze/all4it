@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './Footer.module.css';
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const Footer: FC<Props> = ({ className }) => {
+  const t = useTranslations('footer');
   const { logotype, footer, contacts } = useGlobalStore();
 
   return (
@@ -36,7 +38,7 @@ const Footer: FC<Props> = ({ className }) => {
         </div>
         <div className={styles.row}>
           <Link className={styles.link} href='/privacy'>
-            Политика конфеденциальности
+            {t('privacyPolicy')}
           </Link>
         </div>
       </div>

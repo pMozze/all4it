@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import { getTranslations, getLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import parse from 'html-react-parser';
 import classNames from 'classnames';
 
 import { fromUnixTime, formatDate } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import { ru, enUS } from 'date-fns/locale';
 
 import { fetchProject } from '../api';
 import { BackButton, GalleryCarousel } from '@/shared/ui';
@@ -16,6 +17,8 @@ interface Props {
 }
 
 const ProjectsPage: FC<Props> = async ({ id }) => {
+  const locale = await getLocale();
+  const t = await getTranslations('project');
   const project = await fetchProject(id);
 
   if (!project) {
@@ -43,9 +46,11 @@ const ProjectsPage: FC<Props> = async ({ id }) => {
         </a>
         <div className={styles.sidebarDivider}></div>
         <div>
-          <div className={styles.sidebarBlockTitle}>Дата разработки</div>
+          <div className={styles.sidebarBlockTitle}>{t('developmentDate')}</div>
           <div className={styles.sidebarBlockDescription}>
-            {formatDate(fromUnixTime(project.developmentDate), 'LLLL yyyy', { locale: ru })}
+            {formatDate(fromUnixTime(project.developmentDate), 'LLLL yyyy', {
+              locale: locale === 'ru' ? ru : undefined
+            })}
           </div>
         </div>
       </aside>

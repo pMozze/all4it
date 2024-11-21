@@ -1,10 +1,13 @@
 'use client';
 
 import { FC, useRef, useState } from 'react';
-import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { useTranslations, useLocale } from 'next-intl';
+
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
+
+import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
 import { type Pricelist } from '../../model';
 
@@ -20,6 +23,9 @@ import ChevronRightIcon from '@/shared/assets/icons/chevron-right.svg';
 import styles from './Pricing.module.css';
 
 const Pricing: FC<Pricelist> = ({ title, description, items }) => {
+  const locale = useLocale();
+  const t = useTranslations('homepage.services');
+
   const swiperRef = useRef<SwiperClass>();
   const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
   const [isServiceModalOpen, setIsServiceModalOpen] = useState<{ serviceId: number | null; isOpen: boolean }>({
@@ -46,7 +52,9 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
           <SwiperSlide key={itemIndex} className={styles.carouselSlide}>
             <div className={classNames(styles.card, item.isHighlighted && styles.active)}>
               <div className={styles.cardTitle}>{item.title}</div>
-              <div className={styles.cardPrice}>от {formatPrice(item.priceFrom)}</div>
+              <div className={styles.cardPrice}>
+                {locale === 'ru' ? 'от' : 'from'} {formatPrice(item.priceFrom, locale)}
+              </div>
               <div className={styles.cardTime}>{item.time}</div>
               <div className={styles.cardDivider}></div>
               <div className={styles.cardDescription}>{item.shortDescription}</div>
@@ -54,7 +62,7 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
                 <Button
                   className={styles.cardButton}
                   variant={item.isHighlighted ? 'light' : 'dark'}
-                  text='Заказать'
+                  text={t('orderButton')}
                   onClick={() => setIsFeedbackModalOpen(true)}
                 />
                 <button
@@ -62,7 +70,7 @@ const Pricing: FC<Pricelist> = ({ title, description, items }) => {
                   type='button'
                   onClick={() => setIsServiceModalOpen({ serviceId: item.id, isOpen: true })}
                 >
-                  подробнее
+                  {t('detailsButton')}
                 </button>
               </div>
             </div>

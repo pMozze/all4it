@@ -1,5 +1,8 @@
+'use client';
+
 import { FC } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import type { UrlObject } from 'url';
 import classNames from 'classnames';
 
@@ -13,10 +16,11 @@ interface Props {
 }
 
 const BackButton: FC<Props> = ({ href, className }) => {
+  const t = useTranslations('');
   return (
     <Link href={href} className={classNames(styles.wrapper, className)}>
       <ChevronLeftIcon />
-      Назад
+      {t('backButton')}
     </Link>
   );
 };

@@ -57,9 +57,15 @@
   color: #f7f8f8;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  margin: auto 12px auto 0;
+}
+
 .contactsButton {
   font-size: 13px;
-  margin: auto 12px auto 0;
 }
 
 @media (max-width: 1024px) {

@@ -1,0 +1,57 @@
+{
+  "header": {
+    "about_us": "About Us",
+    "projects": "Projects",
+    "bitrix": "Bitrix",
+    "services": "Services",
+    "contacts": "Contacts",
+    "contactButton": "Contact Us"
+  },
+  "homepage": {
+    "services": {
+      "orderButton": "Get Started",
+      "detailsButton": "details"
+    }
+  },
+  "projects": {
+    "subtitle": "Projects",
+    "title": "Get to know the projects we've been working on",
+    "description": "From new generation startups to established businesses",
+    "gotoProjectButton": "Go to details"
+  },
+  "project": {
+    "developmentDate": "Developed since"
+  },
+  "contacts": {
+    "title": "Tell us how we can help you",
+    "name": {
+      "title": "Your name",
+      "placeholder": "Maxim"
+    },
+    "email": {
+      "title": "E-Mail",
+      "placeholder": "maxim2008@all4it.org"
+    },
+    "phonenumber": {
+      "title": "Phone number",
+      "placeholder": "+1 (555) 555-1234"
+    },
+    "company": {
+      "title": "Company name",
+      "placeholder": "All4it"
+    },
+    "comment": {
+      "title": "How can we help you?",
+      "placeholder": "Hello! I would like to order a website development project for my business and discuss possible ideas and deadlines."
+    },
+    "emailText": "You can also contact us via",
+    "submitButton": "Send message"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy"
+  },
+  "footer": {
+    "privacyPolicy": "Privacy policy"
+  },
+  "backButton": "Back"
+}

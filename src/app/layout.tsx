@@ -2,11 +2,15 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
+
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
 import { AmbientLight } from '@/shared/ui';
 import GlobalStore from './GlobalStore';
 
+import api from '@/shared/api';
 import { fetchGlobals } from '@/shared/api/fetchGlobals';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -15,7 +19,14 @@ import './globals.css';
 import styles from './layout.module.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const globals = await fetchGlobals();
+  const locale = await getLocale();
+
+  api.interceptors.request.use(config => {
+    config.headers['Accept-Language'] = locale;
+    return config;
+  });
+
+  const globals = await fetchGlobals(locale);
 
   return {
     title: globals.page.title,
@@ -25,16 +36,26 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
-  const globals = await fetchGlobals();
+  const locale = await getLocale();
+  const messages = await getMessages();
+
+  api.interceptors.request.use(config => {
+    config.headers['Accept-Language'] = locale;
+    return config;
+  });
+
+  const globals = await fetchGlobals(locale);
 
   return (
-    <html lang='ru'>
+    <html lang={locale}>
       <body className={inter.className}>
-        <Header />
-        <main className={styles.container}>{children}</main>
-        <Footer />
-        <AmbientLight />
-        <GlobalStore {...globals} />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main className={styles.container}>{children}</main>
+          <Footer />
+          <AmbientLight />
+          <GlobalStore {...globals} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,17 +1,18 @@
 'use client';
 
 import { FC, useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 import { Button } from '@/shared/ui';
 import { useGlobalStore } from '@/shared/store';
+import { LanguageSwitcher } from '@/features/language-switcher';
 import { FeedbackFormModal } from '@/widgets/feedback-form-modal';
 
 import styles from './Header.module.css';
 
 const Header: FC = () => {
-  const router = useRouter();
+  const t = useTranslations('header');
   const { logotype } = useGlobalStore();
 
   const headerRef = useRef<HTMLElement>(null);
@@ -35,27 +36,30 @@ const Header: FC = () => {
             </Link>
             <div className={styles.navigation}>
               <Link className={styles.navigationLink} href='/#about-us'>
-                О нас
+                {t('about_us')}
               </Link>
               <Link className={styles.navigationLink} href='/projects'>
-                Портфолио
+                {t('projects')}
               </Link>
               <Link className={styles.navigationLink} href='/#bitrix'>
-                Битрикс
+                {t('bitrix')}
               </Link>
               <Link className={styles.navigationLink} href='/#services'>
-                Услуги
+                {t('services')}
               </Link>
               <Link className={styles.navigationLink} href='/contact'>
-                Контакты
+                {t('contacts')}
               </Link>
             </div>
-            <Button
-              className={styles.contactsButton}
-              text='Связаться'
-              variant='light'
-              onClick={() => setIsFeedbackModalOpen(true)}
-            />
+            <div className={styles.actions}>
+              <Button
+                className={styles.contactsButton}
+                text={t('contactButton')}
+                variant='light'
+                onClick={() => setIsFeedbackModalOpen(true)}
+              />
+              <LanguageSwitcher />
+            </div>
             <style global jsx>{`
               :root {
                 --header-height: ${headerHeight};
