@@ -1,8 +1,10 @@
 'use client';
 
 import { FC, ReactElement, Children } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+
 import classNames from 'classnames';
 import styles from './MarqueeCarousel.module.css';
 
@@ -28,6 +30,17 @@ const MarqueeCarousel: FC<Props> = ({ className, reverse, children }) => {
       slidesPerView={3}
       centeredSlides
       allowTouchMove={false}
+      breakpoints={{
+        0: {
+          slidesPerView: 1
+        },
+        640: {
+          slidesPerView: 2
+        },
+        1088: {
+          slidesPerView: 3
+        }
+      }}
     >
       {Children.map(children, (child, childIndex) => (
         <SwiperSlide key={childIndex} className={styles.carouselSlide}>

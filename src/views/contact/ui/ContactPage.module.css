@@ -25,3 +25,28 @@
 .description a:focus-visible {
   color: var(--color-text-primary);
 }
+
+@media (--media-tablet) {
+  .wrapper {
+    column-gap: 0;
+    justify-content: revert;
+  }
+
+  .formWrapper {
+    margin-left: auto;
+    flex-basis: 60%;
+  }
+}
+
+@media (--media-mobile) {
+  .wrapper {
+    flex-direction: column;
+    row-gap: 50px;
+  }
+
+  .formWrapper {
+    margin-left: 0;
+    flex-basis: 100%;
+    width: 100%;
+  }
+}

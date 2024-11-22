@@ -68,3 +68,29 @@
   border-radius: 6px 6px 0 0;
   transform-origin: bottom;
 }
+
+@media (--media-tablet) {
+  .title {
+    text-align: center;
+    max-width: none;
+  }
+
+  .subtitle {
+    text-align: center;
+    max-width: none;
+  }
+
+  .imagesContainer {
+    width: var(--page-container-width);
+  }
+}
+
+@media (--media-mobile) {
+  .title {
+    font-size: 40px;
+  }
+
+  .imagesContainer {
+    width: 100%;
+  }
+}

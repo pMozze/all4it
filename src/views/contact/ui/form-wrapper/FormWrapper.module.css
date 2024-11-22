@@ -21,3 +21,13 @@
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+
+@media (--media-mobile) {
+  .header {
+    padding: 6.25px 12.5px;
+  }
+
+  .body {
+    padding: 12px;
+  }
+}

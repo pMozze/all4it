@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { InputMask } from '@react-input/mask';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import classNames from 'classnames';
 
 import { type FormData } from '../model';
@@ -15,6 +15,7 @@ import { Button } from '@/shared/ui';
 import styles from './FeedbackForm.module.css';
 
 const FeedbackForm: FC = () => {
+  const locale = useLocale();
   const t = useTranslations('contacts');
 
   const {
@@ -75,7 +76,7 @@ const FeedbackForm: FC = () => {
         <InputMask
           className={classNames(styles.formControl, errors.phonenumber && styles.formControl_invalid)}
           type='tel'
-          mask='+7 (XXX) XXX XX-XX'
+          mask={locale === 'ru' ? '+7 (XXX) XXX XX-XX' : '+XXXXXXXXXXXXXXX'}
           replacement={{ X: /\d/ }}
           placeholder={t('phonenumber.placeholder')}
           {...register('phonenumber', { required: true })}

@@ -120,3 +120,28 @@
 
   color: #8a8f98;
 }
+
+@media (--media-tablet) {
+  .backButton {
+    display: none;
+  }
+
+  .sidebar {
+    width: 30%;
+  }
+}
+
+@media (--media-mobile) {
+  .wrapper {
+    flex-direction: column;
+    row-gap: 120px;
+  }
+
+  .project {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}

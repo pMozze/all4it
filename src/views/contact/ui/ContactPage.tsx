@@ -16,7 +16,7 @@ const ContactPage: FC = async () => {
         <h1 className={styles.title}>{contacts.title}</h1>
         <div className={styles.description}>{parse(contacts.content)}</div>
       </div>
-      <FormWrapper />
+      <FormWrapper className={styles.formWrapper} />
     </div>
   );
 };

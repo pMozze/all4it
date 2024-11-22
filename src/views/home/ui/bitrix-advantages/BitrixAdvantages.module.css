@@ -38,3 +38,16 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+@media (--media-tablet) {
+  .description {
+    min-height: 3lh;
+  }
+}
+
+@media (--media-mobile) {
+  .description {
+    max-width: none;
+    font-size: 16px;
+  }
+}

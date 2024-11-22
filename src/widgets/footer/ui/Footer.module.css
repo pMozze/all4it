@@ -63,3 +63,20 @@
   height: 18px;
   color: #8a8f98;
 }
+
+@media (--media-mobile) {
+  .logotype {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .link {
+    margin-inline: auto;
+  }
+}

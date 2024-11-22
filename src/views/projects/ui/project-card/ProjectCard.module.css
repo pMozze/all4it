@@ -47,3 +47,9 @@
 .wrapper:hover .button {
   color: unset;
 }
+
+@media (--media-tablet) {
+  .shortDescription {
+    max-width: none;
+  }
+}

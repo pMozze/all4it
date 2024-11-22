@@ -38,3 +38,14 @@
 
   color: var(--color-text-secondary);
 }
+
+@media (--media-mobile) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bigNumber {
+    display: none;
+  }
+}

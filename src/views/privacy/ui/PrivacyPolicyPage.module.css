@@ -13,3 +13,9 @@
 .content {
   font-size: 15px;
 }
+
+@media (--media-mobile) {
+  .wrapper {
+    max-width: var(--page-container-width);
+  }
+}
