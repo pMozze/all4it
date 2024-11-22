@@ -4,14 +4,16 @@ import { getRequestConfig } from 'next-intl/server';
 export default getRequestConfig(async () => {
   let locale = cookies().get('NEXT_LOCALE')?.value ?? headers().get('Accept-Language');
 
-  if (locale === null || locale.split(',')[0] === undefined) {
+  if (locale === null) {
     locale = 'en';
-  } else {
-    locale = locale.split(',')[0];
+  }
 
-    if (!locale.includes('ru') && !locale.includes('en')) {
-      locale = 'en';
-    }
+  if (locale.split(',')[0].includes('en')) {
+    locale = 'en';
+  }
+
+  if (locale.split(',')[0].includes('ru')) {
+    locale = 'ru';
   }
 
   return {
