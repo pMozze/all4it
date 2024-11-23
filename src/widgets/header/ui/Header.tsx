@@ -9,6 +9,9 @@ import { useGlobalStore } from '@/shared/store';
 import { LanguageSwitcher } from '@/features/language-switcher';
 import { FeedbackFormModal } from '@/widgets/feedback-form-modal';
 
+import MailIcon from '@/shared/assets/icons/mail.svg';
+import TelegramIcon from '@/shared/assets/icons/telegram.svg';
+
 import styles from './Header.module.css';
 import classNames from 'classnames';
 
@@ -37,7 +40,7 @@ const Header: FC = () => {
         <div className='container'>
           <div className={styles.inner}>
             <div className={styles.topRow}>
-              <Link className={styles.logotype} href='/'>
+              <Link className={styles.logotype} href='/' onClick={() => setIsHamburgerOpen(false)}>
                 <img className={styles.logotypeIcon} src={logotype} alt='' />
                 All4it
               </Link>
@@ -102,6 +105,24 @@ const Header: FC = () => {
                   onClick={() => setIsFeedbackModalOpen(true)}
                 />
                 <LanguageSwitcher />
+              </div>
+              <div className={styles.hamburgerSocials}>
+                <a className={styles.hamburgerSocialsPhonenumber} href='tel:+74957556983'>
+                  +7 (495) 755 69-83
+                </a>
+                <div className={styles.hamburgerSocialsIcons}>
+                  <a
+                    className={styles.hamburgerSocialsIconsItem}
+                    href={contacts.telegram}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    <TelegramIcon />
+                  </a>
+                  <a className={styles.hamburgerSocialsIconsItem} href={`mailto:${contacts.email}`}>
+                    <MailIcon />
+                  </a>
+                </div>
               </div>
             </div>
             <style global jsx>{`

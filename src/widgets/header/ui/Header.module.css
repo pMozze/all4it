@@ -64,8 +64,11 @@
 }
 
 .hamburgerNavigation .navigationLink {
+  padding: 0;
+
   font-size: 21px;
   font-weight: 500;
+
   color: var(--color-text-primary);
 }
 
@@ -74,6 +77,31 @@
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
+}
+
+.hamburgerSocials {
+  display: flex;
+  align-items: center;
+}
+
+.hamburgerSocialsPhonenumber {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.hamburgerSocialsIcons {
+  display: flex;
+  margin-left: auto;
+}
+
+.hamburgerSocialsIconsItem {
+  padding: 12px 6px 12px 12px;
+  color: var(--color-text-tertiary);
+}
+
+.hamburgerSocialsIconsItem svg {
+  width: 16px;
+  height: 16px;
 }
 
 .logotype {
