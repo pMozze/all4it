@@ -19,8 +19,19 @@
     "description": "From new generation startups to established businesses",
     "gotoProjectButton": "Go to details"
   },
+  "services": {
+    "subtitle": "Price list",
+    "title": "Our services",
+    "description": "A wide range of professional services to achieve your goals",
+    "gotoServiceButton": "Details"
+  },
   "project": {
     "developmentDate": "Developed since"
+  },
+  "service": {
+    "price": "Price",
+    "time": "Time",
+    "orderButton": "Order now"
   },
   "contacts": {
     "title": "Tell us how we can help you",

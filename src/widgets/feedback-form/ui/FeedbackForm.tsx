@@ -48,14 +48,12 @@ const FeedbackForm: FC = () => {
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit(submitHandler)}>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>
-          {t('name.title')} <span>*</span>
-        </div>
+        <div className={styles.formControlTitle}>{t('name.title')}</div>
         <input
           className={classNames(styles.formControl, errors.name && styles.formControl_invalid)}
           type='text'
           placeholder={t('name.placeholder')}
-          {...register('name', { required: true })}
+          {...register('name')}
         />
       </label>
       <label className={styles.formControlLabel}>
@@ -70,38 +68,32 @@ const FeedbackForm: FC = () => {
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>
-          {t('phonenumber.title')} <span>*</span>
-        </div>
+        <div className={styles.formControlTitle}>{t('phonenumber.title')}</div>
         <InputMask
           className={classNames(styles.formControl, errors.phonenumber && styles.formControl_invalid)}
           type='tel'
           mask={locale === 'ru' ? '+7 (XXX) XXX XX-XX' : '+XXXXXXXXXXXXXXX'}
           replacement={{ X: /\d/ }}
           placeholder={t('phonenumber.placeholder')}
-          {...register('phonenumber', { required: true })}
+          {...register('phonenumber')}
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>
-          {t('company.title')} <span>*</span>
-        </div>
+        <div className={styles.formControlTitle}>{t('company.title')}</div>
         <input
           className={classNames(styles.formControl, errors.companyName && styles.formControl_invalid)}
           type='text'
           placeholder={t('company.placeholder')}
-          {...register('companyName', { required: true })}
+          {...register('companyName')}
         />
       </label>
       <label className={styles.formControlLabel}>
-        <div className={styles.formControlTitle}>
-          {t('comment.title')} <span>*</span>
-        </div>
+        <div className={styles.formControlTitle}>{t('comment.title')}</div>
         <textarea
           className={classNames(styles.formControl, errors.comment && styles.formControl_invalid)}
           rows={4}
           placeholder={t('comment.placeholder')}
-          {...register('comment', { required: true })}
+          {...register('comment')}
         ></textarea>
       </label>
       <div className={styles.formRow}>

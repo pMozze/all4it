@@ -5,7 +5,7 @@
   flex-direction: column;
 
   padding-top: calc(100px - 16px);
-  height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height));
 }
 
 .wrapper::after {
@@ -38,29 +38,21 @@
 
 .imagesContainer {
   margin-top: 100px;
+  width: 100%;
+  overflow: hidden;
+}
 
-  position: relative;
-  margin-inline: auto;
+.imagesCarouselWrapper {
+  display: flex;
+}
 
-  width: 1600px;
-  height: 100%;
-
-  border: 1px solid #1e1e1e;
-  border-bottom: none;
-
-  border-radius: 12px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.imagesCarouselSlide {
+  flex-shrink: 0;
 }
 
 .image {
-  position: absolute;
-
-  top: calc(6px * var(--index));
-  left: calc(6px * var(--index));
-
-  width: calc(100% - 6px * 2 * var(--index));
-  height: calc(100% - 6px * 2 * var(--index));
+  width: 1280px;
+  aspect-ratio: 16 / 9;
 
   object-fit: cover;
   object-position: top;
@@ -79,10 +71,6 @@
     text-align: center;
     max-width: none;
   }
-
-  .imagesContainer {
-    width: var(--page-container-width);
-  }
 }
 
 @media (--media-mobile) {
@@ -90,7 +78,11 @@
     font-size: 40px;
   }
 
-  .imagesContainer {
+  .image {
     width: 100%;
+  }
+
+  .imagesContainer {
+    margin-inline: auto;
   }
 }

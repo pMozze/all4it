@@ -1,0 +1,46 @@
+.wrapper {
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 16px;
+  background-color: #08090a;
+
+  cursor: pointer;
+}
+
+.title {
+  margin-top: auto;
+  font-size: 24px;
+  max-width: 75%;
+}
+
+.button {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  font-size: 14px;
+  line-height: 1;
+
+  color: #62666d;
+  transition: color 250ms ease;
+}
+
+.button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.wrapper:hover .button {
+  color: unset;
+}
+
+@media (--media-tablet) {
+  .title {
+    max-width: none;
+  }
+}

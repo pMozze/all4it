@@ -54,7 +54,7 @@ const Header: FC = () => {
                 <Link className={styles.navigationLink} href='/#bitrix'>
                   {t('bitrix')}
                 </Link>
-                <Link className={styles.navigationLink} href='/#services'>
+                <Link className={styles.navigationLink} href='/services'>
                   {t('services')}
                 </Link>
                 <Link className={styles.navigationLink} href='/contact'>
@@ -90,7 +90,7 @@ const Header: FC = () => {
                 <Link className={styles.navigationLink} href='/#bitrix' onClick={() => setIsHamburgerOpen(false)}>
                   {t('bitrix')}
                 </Link>
-                <Link className={styles.navigationLink} href='/#services' onClick={() => setIsHamburgerOpen(false)}>
+                <Link className={styles.navigationLink} href='/services' onClick={() => setIsHamburgerOpen(false)}>
                   {t('services')}
                 </Link>
                 <Link className={styles.navigationLink} href='/contact' onClick={() => setIsHamburgerOpen(false)}>

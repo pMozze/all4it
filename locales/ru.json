@@ -19,8 +19,19 @@
     "description": "От стартапов нового поколения до устоявшихся предприятий",
     "gotoProjectButton": "Перейти к проекту"
   },
+  "services": {
+    "subtitle": "Прейскурант",
+    "title": "Наши услуги",
+    "description": "Широкий спектр профессиональных услуг для достижения ваших целей",
+    "gotoServiceButton": "Подробнее"
+  },
   "project": {
     "developmentDate": "Дата разработки"
+  },
+  "service": {
+    "price": "Цена",
+    "time": "Срок",
+    "orderButton": "Заказать"
   },
   "contacts": {
     "title": "Расскажите чем мы можем Вам помочь",

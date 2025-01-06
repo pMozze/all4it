@@ -1,8 +1,11 @@
-import { FC } from 'react';
-import * as motion from 'framer-motion/client';
-import styles from './Hero.module.css';
+'use client';
 
+import { FC } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import * as motion from 'framer-motion/client';
 import { type Hero } from '../../model';
+import styles from './Hero.module.css';
 
 const Hero: FC<Hero> = ({ title, images, description }) => {
   return (
@@ -41,26 +44,33 @@ const Hero: FC<Hero> = ({ title, images, description }) => {
           {description}
         </motion.h2>
       </div>
-      <div className={styles.imagesContainer}>
+      <Swiper
+        className={styles.imagesContainer}
+        wrapperClass={styles.imagesCarouselWrapper}
+        loop
+        spaceBetween={6}
+        centeredSlides
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false
+        }}
+        allowTouchMove={false}
+        breakpoints={{
+          0: {
+            slidesPerView: 1
+          },
+          768: {
+            slidesPerView: 'auto'
+          }
+        }}
+      >
         {images.map((image, imageIndex) => (
-          <motion.img
-            initial={{
-              translate: '0 24px',
-              opacity: 0
-            }}
-            animate={{
-              translate: '0 0px',
-              opacity: 1
-            }}
-            transition={{ ease: 'circOut', delay: 2 + imageIndex * 0.5 + imageIndex - 1, duration: 1 }}
-            key={imageIndex}
-            className={styles.image}
-            src={image}
-            alt=''
-            style={{ '--index': `${imageIndex + 1}` }}
-          />
+          <SwiperSlide key={imageIndex} className={styles.imagesCarouselSlide}>
+            <img key={imageIndex} className={styles.image} src={image} alt='' />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };

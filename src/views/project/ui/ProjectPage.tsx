@@ -5,7 +5,7 @@ import parse from 'html-react-parser';
 import classNames from 'classnames';
 
 import { fromUnixTime, formatDate } from 'date-fns';
-import { ru, enUS } from 'date-fns/locale';
+import { ru } from 'date-fns/locale';
 
 import { fetchProject } from '../api';
 import { BackButton, GalleryCarousel } from '@/shared/ui';
@@ -34,7 +34,7 @@ const ProjectsPage: FC<Props> = async ({ id }) => {
         <p className={styles.secondShortDescription}>{project.secondShortDescription}</p>
         <div className={styles.divider}></div>
         <div className={styles.description}>{parse(project.description)}</div>
-        <GalleryCarousel className={styles.gallery} images={project.gallery} slidesPerView={3} />
+        <GalleryCarousel className={styles.gallery} images={project.gallery} slidesPerView={2} />
       </article>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarLogotypeWrapper}>
