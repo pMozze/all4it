@@ -1,9 +1,10 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import Typewriter from 'typewriter-effect';
 import classNames from 'classnames';
 
+import useLocationHash from '@/shared/hooks/useLocationHash';
 import { MarqueeCarousel } from '@/shared/ui';
 
 import styles from './BitrixAdvantages.module.css';
@@ -11,8 +12,17 @@ import styles from './BitrixAdvantages.module.css';
 import { type Advantages } from '../../model';
 
 const BitrixAdvantages: FC<Advantages> = ({ title, descriptionList, marqueeCarouseles }) => {
+  const hash = useLocationHash();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (hash === '#bitrix') {
+      wrapperRef.current!.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  }, [hash]);
+
   return (
-    <div id='bitrix' className={classNames(styles.wrapper, 'container')}>
+    <div ref={wrapperRef} className={classNames(styles.wrapper, 'container')}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.description}>
         <Typewriter

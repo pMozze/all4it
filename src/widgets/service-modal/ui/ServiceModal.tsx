@@ -1,9 +1,8 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import parse from 'html-react-parser';
-
-import { Modal } from '@/shared/ui';
 
 import { fetchService } from '../api';
 import { type Service } from '../model';
@@ -15,6 +14,8 @@ interface Props {
   isOpen?: boolean;
   onClose?: () => void;
 }
+
+const Modal = dynamic(() => import('@/shared/ui').then(mod => mod.Modal), { ssr: false });
 
 const ServiceModal: FC<Props> = ({ serviceId, isOpen, onClose }) => {
   const [service, setService] = useState<Service | null>(null);

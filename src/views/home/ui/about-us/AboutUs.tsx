@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import parse from 'html-react-parser';
 import classNames from 'classnames';
 
@@ -10,9 +10,20 @@ import styles from './AboutUs.module.css';
 
 import { type Aboutus } from '../../model';
 
+import useLocationHash from '@/shared/hooks/useLocationHash';
+
 const AboutUs: FC<Aboutus> = ({ title, description, cards }) => {
+  const hash = useLocationHash();
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (hash === '#about-us') {
+      wrapperRef.current!.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  }, [hash]);
+
   return (
-    <div id='about-us' className={styles.wrapper}>
+    <div ref={wrapperRef} className={styles.wrapper}>
       <div className={classNames(styles.inner, 'container')}>
         <div className={styles.hero}>
           <h2 className={styles.heroTitle}>{title}</h2>

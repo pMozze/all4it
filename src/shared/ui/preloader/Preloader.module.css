@@ -1,6 +1,6 @@
 .image {
-  width: 32px;
-  height: 32px;
+  width: 64px;
+  height: 64px;
   object-fit: fill;
   animation: animation 2s ease infinite;
 }

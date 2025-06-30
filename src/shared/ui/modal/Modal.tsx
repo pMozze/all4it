@@ -16,13 +16,19 @@ interface Props extends PropsWithChildren {
 
 const Modal: FC<Props> = ({ title, isOpen, onClose, children }) => {
   const documentBodyRef = useRef<HTMLElement>();
+  const initalBodyStyle = useRef<string>(document.body.style.overflow);
 
   useEffect(() => {
     documentBodyRef.current = document.body;
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      initalBodyStyle.current = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = initalBodyStyle.current;
+    }
   }, [isOpen]);
 
   if (documentBodyRef.current === undefined) {
@@ -32,14 +38,15 @@ const Modal: FC<Props> = ({ title, isOpen, onClose, children }) => {
   return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          key='backdrop'
-          className={styles.modalBackdrop}
-          onClick={event => console.log(event)}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { ease: 'circOut', duration: 0.25 } }}
-          exit={{ opacity: 0, transition: { ease: 'circIn', duration: 0.25 } }}
-        >
+        <div className={styles.wrapper}>
+          <motion.div
+            key='backdrop'
+            className={styles.modalBackdrop}
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { ease: 'circOut', duration: 0.25 } }}
+            exit={{ opacity: 0, transition: { ease: 'circIn', duration: 0.25 } }}
+          ></motion.div>
           <motion.div
             key='modal'
             className={styles.modal}
@@ -56,7 +63,7 @@ const Modal: FC<Props> = ({ title, isOpen, onClose, children }) => {
             </div>
             <div className={styles.content}>{children}</div>
           </motion.div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>,
     documentBodyRef.current

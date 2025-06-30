@@ -1,8 +1,6 @@
 'use client';
 
 import { FC } from 'react';
-import classNames from 'classnames';
-
 import { useGlobalStore } from '@/shared/store';
 import styles from './Preloader.module.css';
 
@@ -12,7 +10,12 @@ interface Props {
 
 const Preloader: FC<Props> = ({ className }) => {
   const { logotype } = useGlobalStore();
-  return <img className={classNames(styles.image, className)} src={logotype} alt='' />;
+
+  return (
+    <div className={className}>
+      <img className={styles.image} src={logotype} alt='' />
+    </div>
+  );
 };
 
 export default Preloader;
