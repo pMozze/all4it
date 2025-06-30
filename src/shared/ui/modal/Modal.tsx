@@ -35,7 +35,7 @@ const Modal: FC<Props> = ({ title, isOpen, onClose, children }) => {
         <motion.div
           key='backdrop'
           className={styles.modalBackdrop}
-          onClick={onClose}
+          onClick={event => console.log(event)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { ease: 'circOut', duration: 0.25 } }}
           exit={{ opacity: 0, transition: { ease: 'circIn', duration: 0.25 } }}

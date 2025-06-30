@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
@@ -13,10 +12,17 @@ import YandexMetrika from './YandexMetrika';
 import api from '@/shared/api';
 import { fetchGlobals } from '@/shared/api/fetchGlobals';
 
-const inter = Inter({ subsets: ['latin'] });
+import { inter, berkleyMono } from '@/shared/utils/fonts';
+import classNames from 'classnames';
 
 import './globals.css';
 import styles from './layout.module.css';
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+};
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const locale = await getLocale();
@@ -48,10 +54,7 @@ const RootLayout = async ({ children }: Readonly<{ children: ReactNode }>) => {
 
   return (
     <html lang={locale}>
-      <head>
-        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
-      </head>
-      <body className={inter.className}>
+      <body className={classNames(inter.variable, berkleyMono.variable)}>
         <YandexMetrika />
         <NextIntlClientProvider messages={messages}>
           <Header />
