@@ -47,7 +47,9 @@ const Functions: FC<Props> = ({ className }) => {
         <div className={styles.listItem}>
           <div className={styles.listItemNumber}>06</div>
           <div className={styles.listItemTitle}>Корпоративный календарь</div>
-          <div className={styles.listItemDescription}>Планируйте встречи события и звонки в одной "экосистеме".</div>
+          <div className={styles.listItemDescription}>
+            Планируйте встречи события и звонки в одной &quot;экосистеме&quot;.
+          </div>
         </div>
         <div className={styles.listItem}>
           <div className={styles.listItemNumber}>07</div>
@@ -68,8 +70,8 @@ const Functions: FC<Props> = ({ className }) => {
           <div className={styles.listItemNumber}>09</div>
           <div className={styles.listItemTitle}>Мобильное приложение</div>
           <div className={styles.listItemDescription}>
-            Позволит оптимизировать работу "полевых" сотрудников и получать все уведомления на смартфон по аналогии с
-            популярными мессенджерами.
+            Позволит оптимизировать работу &quot;полевых&quot; сотрудников и получать все уведомления на смартфон по
+            аналогии с популярными мессенджерами.
           </div>
         </div>
         <div className={styles.listItem}>
