@@ -1,0 +1,25 @@
+.wrapper {
+  padding-top: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+
+  border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+}
+
+.item {
+}
+
+.itemTitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.itemDescription {
+  font-size: 14px;
+  text-wrap: pretty;
+  margin-top: 10px;
+
+  color: var(--color-text-tertiary);
+}
